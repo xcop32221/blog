@@ -53,3 +53,12 @@
   .lightText {
     color: #666;
   }
+  .bg{
+    // position: absolute;
+    // bottom: 0;
+    // width: 100vw;
+    height: 96vh;
+    background-image: url('../public//layered-waves-haikei.svg');
+    background-repeat: no-repeat;
+    background-size: cover;
+  }

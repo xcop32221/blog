@@ -20,12 +20,10 @@ export async function getStaticPaths() {
   const paths = getAllPostIds();
   return {
     paths,
-    fallback: false,
+    fallback: true,
   };
 }
 export default function Post({ postData }) {
-  //   const router = useRouter();
-  //   console.log(router);
   return (
     <Layout>
       <Head>
