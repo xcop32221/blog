@@ -3,11 +3,16 @@ import Image from "next/image";
 import styles from "./layout.module.scss";
 import utilStyles from "../styles/utils.module.scss";
 import Link from "next/link";
-
+import { useRouter } from "next/router";
 const name = "Wayyt Huang";
 export const siteTitle = "Wayyt Blog";
 
 export default function Layout({ children, home }) {
+  const router = useRouter();
+  const handleClick = (event) => {
+    event.preventDefault();
+    router.back();
+  };
   return (
     <div className={styles.container}>
       <Head>
@@ -61,7 +66,9 @@ export default function Layout({ children, home }) {
       <main>{children}</main>
       {!home && (
         <div className={styles.backToHome}>
-          <Link href="/">← Back to home</Link>
+          <Link href="/">
+            <i onClick={handleClick}>Go Back</i>
+          </Link>
         </div>
       )}
     </div>

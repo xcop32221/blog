@@ -3,27 +3,29 @@ import Layout, { siteTitle } from "../components/layout";
 import utilStyles from "../styles/utils.module.scss";
 import { getSortedPostsData } from "../lib/post";
 import Link from "next/link";
-import Date from "../components/date";
-import LoaderSpin from "../components/widgets/loader";
+import { useRouter } from "next/router";
 import gsap from "gsap";
-import { useLayoutEffect, useRef } from "react";
+import { useLayoutEffect, useRef, useEffect } from "react";
 import { Button, theme } from "antd";
+import EnterButton from "../components/widgets/enterButton";
 const { useToken } = theme;
 export default function Home({ allPostsData }) {
   const headRef = useRef(null);
-  const contentRef = useRef(null);
+  const btn = useRef(null);
   const { token } = useToken();
+  const router = useRouter();
+  useRouter;
   useLayoutEffect(() => {
     const tl = gsap.timeline();
     tl.from(headRef.current, {
-      duration: 1,
+      duration: 2,
       opacity: 0,
       x: 100,
       ease: "power4.out",
     });
-    tl.from(contentRef.current, {
-      duration: 1,
-      opacity: 0,
+    tl.from(btn.current, {
+      duration: 3,
+      opacity: 1,
       y: 100,
       ease: "power4.out",
     });
@@ -42,29 +44,17 @@ export default function Home({ allPostsData }) {
             in my life
           </p>
         </section>
-        <section
-          className={`${utilStyles.headingMd} ${utilStyles.padding1px}`}
-          ref={contentRef}
+
+        {/* <Link href="/posts/ssg-ssr">More Pages</Link> */}
+
+        <EnterButton
+          onClick={() => {
+            router.push("/posts");
+          }}
+          ref={btn}
         >
-          <h2 className={utilStyles.headingLg}>Blog</h2>
-          <ul className={utilStyles.list}>
-            {allPostsData.map(({ id, date, title }) => (
-              <li className={utilStyles.listItem} key={id}>
-                <Link href={`/posts/${id}`}>{title}</Link>
-                <br />
-                <small className={utilStyles.lightText}>
-                  <Date dateString={date} />
-                </small>
-              </li>
-            ))}
-          </ul>
-        </section>
-        <Link href="/posts/ssg-ssr">More Pages</Link>
-        <Button
-          style={{ backgroundColor: token.colorPrimary, color: token.color }}
-        >
-          Primary Button
-        </Button>
+          Welcom to my space
+        </EnterButton>
       </Layout>
     </div>
   );

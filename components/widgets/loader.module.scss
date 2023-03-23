@@ -4,7 +4,7 @@
     height: 200px;
     position: absolute;
     inset: 0;
-    margin: auto;
+    margin: auto 50%;
 }
 .spinner:before {
     transform: rotateX(60deg) rotateY(45deg) rotateZ(45deg);

@@ -4,9 +4,10 @@ import { getAllPostIds, getPostData } from "../../lib/post";
 import Head from "next/head";
 import Date from "../../components/date";
 import utilStyles from "../../styles/utils.module.scss";
-import { useRouter } from "next/router";
+
 export async function getStaticProps({ params }) {
   const postData = await getPostData(params.id);
+
   return {
     props: {
       postData,
