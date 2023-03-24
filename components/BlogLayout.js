@@ -9,7 +9,7 @@ import {
 import { Menu } from "antd";
 import { useState } from "react";
 import FancyCard from "./fancyCard";
-import MyBreadcrumb from "/components/breadcrumb";
+import MyBreadcrumb from "../components/myBreadcrumb";
 export default function BlogLayout({ children, routes }) {
   return (
     <>
