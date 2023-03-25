@@ -1,12 +1,12 @@
 import utilStyles from "../../styles/utils.module.scss";
-import { getSortedPostsData } from "../../lib/post";
+import { getSortedPostsData, getTextData } from "../../lib/post";
 import { useLayoutEffect, useRef } from "react";
 import Link from "next/link";
 import gsap from "gsap";
 import Date from "/components/date";
 import BlogLayout from "../../components/BlogLayout";
 import { useRouter } from "next/router";
-export default function Post({ allPostsData }) {
+export default function Post({ allPostsData, text }) {
   const contentRef = useRef(null);
   const router = useRouter();
   useLayoutEffect(() => {
@@ -19,7 +19,7 @@ export default function Post({ allPostsData }) {
     });
   });
   return (
-    <BlogLayout routes={router.pathname}>
+    <BlogLayout routes={router.pathname} text={text}>
       <section
         className={`${utilStyles.headingMd} ${utilStyles.padding1px}`}
         ref={contentRef}
@@ -42,9 +42,11 @@ export default function Post({ allPostsData }) {
 }
 export async function getStaticProps() {
   const allPostsData = getSortedPostsData();
+  const text = getTextData();
   return {
     props: {
       allPostsData,
+      text,
     },
   };
 }
