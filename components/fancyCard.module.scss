@@ -1,6 +1,6 @@
 .card {
-    width: 600px;
-    height: 700px;
+    width: 450px;
+    height: 600px;
     //background: white;
     position: relative;
     display: flex;
@@ -16,8 +16,9 @@
   
   .card h2 {
     z-index: 1;
-    color: black;
+    color: white;
     font-size: 2em;
+    padding: 0 20px;
   }
   
   .card::before {
@@ -43,7 +44,7 @@
   .card::after {
     content: '';
     position: absolute;
-    background: white;
+    background: black;
     inset: 5px;
     border-radius: 30px;
     -webkit-border-radius: 30px;

@@ -10,7 +10,9 @@ import { Menu } from "antd";
 import { useState } from "react";
 import FancyCard from "./fancyCard";
 import MyBreadcrumb from "../components/breadCrumb";
-export default function BlogLayout({ children, routes }) {
+import DyLogo from "/components/widgets/dyLogo";
+
+export default function BlogLayout({ children, routes, text }) {
   return (
     <>
       <Head>
@@ -18,17 +20,16 @@ export default function BlogLayout({ children, routes }) {
       </Head>
       <div className={styles.blogLayout}>
         <div className={styles.header}>
+          {/* <DyLogo /> */}
           <MyMenu />
         </div>
         <div className={styles.left}>
           <MyBreadcrumb routes={routes} />
+
           {children}
         </div>
         <div className={styles.right}>
-          <FancyCard>
-            We are programmed to receive You can check out any time you like，
-            But you can never leave
-          </FancyCard>
+          <FancyCard>{text}</FancyCard>
         </div>
       </div>
     </>

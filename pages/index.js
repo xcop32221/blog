@@ -39,9 +39,11 @@ export default function Home({ allPostsData }) {
         <section className={utilStyles.headingMd}>
           {/* <LoaderSpin /> */}
           <p ref={headRef}>
-            Welcom to my blog 😛 I am a front-end development engineer, love to
-            study front-end technology, and love skateboarding and hip-hop music
-            in my life
+            Welcome to my personal website! 😊 I'm a front-end engineer
+            specializing in modern web technologies. This is where I share my
+            insights and experience on front-end development and web
+            technologies, as well as my personal interests. I welcome your
+            feedback and hope you find value in browsing my blog. 🚀
           </p>
         </section>
 

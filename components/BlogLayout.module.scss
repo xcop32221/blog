@@ -1,22 +1,17 @@
-// .blog-layout{
-//     :global{
-//         .ant-layout-header{
-//             // background-color: #fff;
-//             // padding: 1000px 0;
-//         }
-//     }
-// }
 .blogLayout{
     display: flex;
     justify-content: space-between;
     align-items: center;
     flex-wrap: wrap;
+    background-image: url('../public//layered-waves-haikei.svg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: 0px 0px;
 }
 .left{
     padding: 100px 200px;
-    width: 1600px;
+    width: 65%;
     height: 100vh;
-    // background-color: #bfa;
     :global{
         .ant-breadcrumb{
             position: relative;
@@ -27,19 +22,15 @@
 }
 .right{
     padding-top: 100px;
-    
     height: 100vh;
-    flex: 1;
-    // background-color: red;
+    width: 35%;
+    padding-left: 80px;
+    
     
 }
 .header{
     width: 100vw;
     height: 100px;
-    // background-color: #000;
-    // width: 100vw;
-    // height: 100px;
-    // background-color: #000;
     :global{
         .ant-menu{
            height: 100px;
