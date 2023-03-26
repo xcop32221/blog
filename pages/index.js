@@ -51,7 +51,7 @@ export default function Home({ allPostsData }) {
 
         <EnterButton
           onClick={() => {
-            router.push("/posts");
+            router.push("/notion");
           }}
           ref={btn}
         >

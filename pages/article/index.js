@@ -19,16 +19,16 @@ export default function Post({ allPostsData, text }) {
     });
   });
   return (
-    <BlogLayout routes={router.pathname} text={text} path={'posts'}>
+    <BlogLayout routes={router.pathname} text={text} path='article'>
       <section
         className={`${utilStyles.headingMd} ${utilStyles.padding1px}`}
         ref={contentRef}
       >
-        <h2 className={utilStyles.headingLg}>Blog</h2>
+        <h2 className={utilStyles.headingLg}>JavaScript</h2>
         <ul className={utilStyles.list}>
           {allPostsData.map(({ id, date, title }) => (
             <li className={utilStyles.listItem} key={id}>
-              <Link href={`/posts/${id}`}>{title}</Link>
+              <Link href={`/article/${id}`}>{title}</Link>
               <br />
               <small className={utilStyles.lightText}>
                 <Date dateString={date} />
@@ -41,8 +41,8 @@ export default function Post({ allPostsData, text }) {
   );
 }
 export async function getStaticProps() {
-  const allPostsData = getSortedPostsData('blog');
-  const text = getTextData()[0];
+  const allPostsData = getSortedPostsData('article');
+  const text = getTextData()[1];
   return {
     props: {
       allPostsData,

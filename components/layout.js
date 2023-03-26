@@ -19,7 +19,7 @@ export default function Layout({ children, home }) {
         <link rel="icon" href="/favicon.ico" />
         <meta
           name="description"
-          content="Learn how to build a personal website using Next.js"
+          content="黄若峰的个人博客，记录学习和生活的点点滴滴"
         />
         <meta
           property="og:image"

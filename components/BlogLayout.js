@@ -1,18 +1,21 @@
 import { siteTitle } from "./layout";
 import Head from "next/head";
 import styles from "./BlogLayout.module.scss";
+import utilStyles from "../styles/utils.module.scss";
+import Image from "next/image";
 import {
-  AppstoreOutlined,
-  MailOutlined,
-  SettingOutlined,
+  FileTwoTone,
+  AppstoreTwoTone,
+  BulbTwoTone
 } from "@ant-design/icons";
 import { Menu } from "antd";
 import { useState } from "react";
 import FancyCard from "./fancyCard";
 import MyBreadcrumb from "../components/breadCrumb";
-import DyLogo from "/components/widgets/dyLogo";
+import { useRouter } from "next/router";
+// import DyLogo from "/components/widgets/dyLogo";
 
-export default function BlogLayout({ children, routes, text }) {
+export default function BlogLayout({ children, routes, text,path }) {
   return (
     <>
       <Head>
@@ -21,16 +24,16 @@ export default function BlogLayout({ children, routes, text }) {
       <div className={styles.blogLayout}>
         <div className={styles.header}>
           {/* <DyLogo /> */}
-          <MyMenu />
+          <MyMenu activekey={path}/>
         </div>
-        <div className={styles.left}>
-          <MyBreadcrumb routes={routes} />
+            <div className={styles.left}>
+            <MyBreadcrumb routes={routes} />
 
-          {children}
-        </div>
-        <div className={styles.right}>
-          <FancyCard>{text}</FancyCard>
-        </div>
+            {children}
+           </div>
+            <div className={styles.right}>
+            <FancyCard>{text}</FancyCard>
+          </div>
       </div>
     </>
   );
@@ -38,67 +41,47 @@ export default function BlogLayout({ children, routes, text }) {
 
 const items = [
   {
-    label: "BLOG",
-    key: "Blog",
-    icon: <MailOutlined />,
+    label: "Conclusions",
+    key: "notion",
+    icon: <BulbTwoTone />,
   },
   {
-    label: "JS",
-    key: "js",
-    icon: <MailOutlined />,
+    label: "Article",
+    key: "article",
+    icon: <FileTwoTone />,
   },
   {
-    label: "NODE",
-    key: "node",
-    icon: <AppstoreOutlined />,
+    label: "Blog",
+    key: "posts",
+    icon: <AppstoreTwoTone />,
   },
   {
-    label: "REACT",
-    key: "react",
-    icon: <SettingOutlined />,
-    children: [
-      {
-        type: "group",
-        label: "Item 1",
-        children: [
-          {
-            label: "Option 1",
-            key: "setting:a",
-          },
-          {
-            label: "Option 2",
-            key: "setting:b",
-          },
-        ],
-      },
-    ],
+    label: <Image
+    priority
+    src="/images/profile.jpg"
+    className={utilStyles.borderCircle}
+    height={80}
+    width={80}
+    style={{marginTop:'10px'}}
+    alt=""
+  />,
+    key: "avatar",
+   
   },
-  {
-    label: "VUE",
-    key: "vue",
-    icon: <SettingOutlined />,
-    children: [
-      {
-        type: "group",
-        label: "Item 1",
-        children: [
-          {
-            label: "Option 1",
-            key: "setting:1",
-          },
-          {
-            label: "Option 2",
-            key: "setting:2",
-          },
-        ],
-      },
-    ],
-  },
+  
+  
 ];
-const MyMenu = () => {
-  const [current, setCurrent] = useState("Blog");
+const MyMenu = ({activekey}) => {
+  const router = useRouter();
+  const [current, setCurrent] = useState(activekey);
   const onClick = (e) => {
-    setCurrent(e.key);
+    if (e.key!=='avatar') {
+      setCurrent(e.key);
+      router.push(`/${e.key}`);
+    }
+    else{
+      router.push(`/`)
+    }
   };
   return (
     <Menu
@@ -109,3 +92,4 @@ const MyMenu = () => {
     />
   );
 };
+export { MyMenu };

@@ -6,7 +6,7 @@ import Date from "../../components/date";
 import utilStyles from "../../styles/utils.module.scss";
 
 export async function getStaticProps({ params }) {
-  const postData = await getPostData(params.id,'blog');
+  const postData = await getPostData(params.id,'article');
   return {
     props: {
       postData,
@@ -17,7 +17,7 @@ export async function getStaticProps({ params }) {
 //a: getServerSideProps
 
 export async function getStaticPaths() {
-  const paths = getAllPostIds('blog');
+  const paths = getAllPostIds('article');
   return {
     paths,
     fallback: true,
