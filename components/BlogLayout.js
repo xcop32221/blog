@@ -41,7 +41,7 @@ export default function BlogLayout({ children, routes, text,path }) {
 
 const items = [
   {
-    label: "Conclusions",
+    label: "Space",
     key: "notion",
     icon: <BulbTwoTone />,
   },
