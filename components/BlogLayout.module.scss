@@ -1,4 +1,5 @@
 .blogLayout {
+
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -12,7 +13,7 @@
 
 
 .left {
-    padding: 100px 200px;
+    padding: 5% 5%;
     width: 65%;
     height: 100vh;
 
@@ -25,13 +26,23 @@
     }
 }
 
+@media (max-width: 768px) {
+    .right {
+        display: none;
+    }
+
+    .left {
+        padding: 10% 10%;
+        width: 65%;
+        height: 100vh;
+    }
+}
+
 .right {
     padding-top: 100px;
     height: 100vh;
     width: 35%;
     padding-left: 80px;
-
-
 }
 
 .header {
@@ -44,7 +55,7 @@
             font-size: 20px;
             line-height: 100px;
             font-weight: bold;
-            padding-left: 180px;
+            // padding-left: 15%;
 
             :nth-child(4) {
                 position: absolute;
